@@ -1,0 +1,3965 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8" /> 
+  
+  <meta name="description" content="" /> 
+  <meta name="keywords" content="olimpiada informatyczna" /> 
+  <title>Olimpiada Informatyczna</title> 
+
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cousine:regular,bold" >
+  <link rel="stylesheet" href="/static/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />  
+  <link rel="stylesheet" href="/static/css/layout.css" /> 
+  <link rel="shortcut icon" href="/static/images/favicon.ico" />
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  <script type="text/javascript" src="/static/js/fancybox/jquery.easing-1.4.pack.js"></script>
+  <script type="text/javascript" src="/static/js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+
+  <script type="text/javascript">
+       
+  if ((screen.width>=1366) && (screen.height>=768)) {
+    var headId = document.getElementsByTagName("head")[0];  
+    var cssNode = document.createElement('link');
+    cssNode.type = 'text/css';
+    cssNode.rel = 'stylesheet';
+    cssNode.href = '/static/css/layout1366.css';
+    cssNode.media = 'screen';
+    headId.appendChild(cssNode);
+ }
+  else if ((screen.width>=1280) && (screen.height>=800)) {}
+  else  {
+    var headId = document.getElementsByTagName("head")[0];  
+    var cssNode = document.createElement('link');
+    cssNode.type = 'text/css';
+    cssNode.rel = 'stylesheet';
+    cssNode.href = '/static/css/layoutSmall.css';
+    cssNode.media = 'screen';
+    headId.appendChild(cssNode);
+  }
+ 
+  $(document).ready(function() {
+    $("a.grouped_elements").fancybox();
+  });
+
+  </script>
+
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22451560-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+
+  </head>
+
+  <body>
+
+  <!-- FB like button -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) return;
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+             fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'facebook-jssdk'));</script>
+                
+  <div id="large_container">
+  <div id="large_container2">
+  <div id="large_container3">
+
+    <div id="container">
+
+    
+    <div id="header">
+      <a href="/"><img src="/static/images/logo_stare.jpg" alt="logo"></a>
+      <div id="header_top_slider">
+        
+          <div id="header_top">
+  rok_szkolny(2015,2016);
+  <span>edycja_OI(23);</span>
+</div>
+
+<div id="header_slider">
+</div>
+
+<script>
+  
+  function centerInText(input_text, destination_length) {
+    
+    var return_value = input_text;
+    if (return_value.length % 2 > 0) {
+      return_value = return_value + ' ';
+    }
+    while (return_value.length < destination_length) {
+      return_value = ' ' + return_value + ' ';
+    }
+    return return_value
+  }
+
+  function generateSlider(slider_size, slider_progress, titles_array, dates_array) {
+    var element_size = 20;
+
+    var first_line = '<pre><span class=blue>' + centerInText(titles_array[0], element_size)+ '</span><span class=red>' + centerInText(titles_array[1], slider_size - 2 * element_size) + '</span><span class=green>'+ centerInText(titles_array[2], element_size) + '</span></pre>';
+    
+    var second_line = '[';
+    var i = 0;
+    for (i = 0; i < slider_progress; i = i + 1) {
+      var elem = '=';
+      if (i < element_size) {
+        elem = '<span class=blue>' + elem + '</span>';
+      }
+      if (titles_array[1] != "" && i > (slider_size - element_size)/2) {
+        elem = '<span class=red>' + elem + '</span>';
+      }
+      second_line += elem;
+    }
+    var finisher = '>';
+    if (titles_array[1] != "" && slider_size > (slider_size - element_size)/2) {
+      finisher = '<span class=red>' + finisher + '</span>';
+    }
+    second_line += finisher;
+    for (i = slider_progress + 1; i < slider_size; i = i + 1) {
+      var clr = 'black';
+      if (titles_array[1] != "" && i > (slider_size - element_size)/2 && i < (slider_size + element_size) / 2) {
+        clr = 'red';
+      }
+      if (i > slider_size - element_size) {
+        clr = 'green';
+      }
+      second_line += '<span class='+ clr +'>' + '.' + '</span>';
+    }
+    second_line += ']';
+
+    var third_line = '<pre><span class=blue>' + centerInText(dates_array[0], element_size) +
+    '</span><span class=red>' + centerInText(dates_array[1], slider_size - 2 * element_size) +
+    '</span><span class=green>' + centerInText(dates_array[2], element_size) + '</span></pre>';
+    return first_line + second_line + third_line
+  }
+  
+  document.getElementById('header_slider').innerHTML =
+      generateSlider(90, 46, new Array("XXIII_OI_etap(2);","XXIII_OI_etap(3);","", ""), new Array("09.02 - 11.02","12.04 - 16.04","",""));
+
+</script>
+
+            
+      </div>
+    </div>
+
+    <div id="left_pane">
+      <div id="left_menu">
+        
+<ul>
+
+
+<li>
+
+<a href="/l/185/">XXIII OI</a>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+
+<a href="/l/35/">O Olimpiadzie</a>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+
+<a href="/l/76/">Osiągnięcia</a>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="selected">
+
+<a href="/l/42/">Archiwum OI</a>
+
+<ul class="level2">
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/274/">XXII OI(2014,2015)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/262/">XXI OI(2013,2014)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/245/">XX OI(2012,2013)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/209/">XIX OI(2011,2012)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/1/">XVIII OI(2010,2011)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/73/">XVII OI(2009,2010)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/109/">XVI OI(2008,2009)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/71/">XV OI(2007,2008)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry  selected 
+     " >
+    <a href="/l/65/">XIV OI(2006,2007)</a>
+
+    
+    
+      
+        <ul class="level3">
+        
+        <li class="level3_entry  selected 
+          " >
+        <a href="/l/14oi_3etap_wyniki/">Wyniki III etapu</a>
+        </li>
+        
+        <li class="level3_entry 
+          " >
+        <a href="/l/14oi_2etap_wyniki/">Wyniki II etapu</a>
+        </li>
+        
+        <li class="level3_entry 
+          " >
+        <a href="/l/14oi_1etap_wyniki/">Wyniki I etapu</a>
+        </li>
+        
+        <li class="level3_entry 
+           last-child " >
+        <a href="/l/14oi_zadania/">Zadania</a>
+        </li>
+        
+        </ul>
+     
+     
+
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/93/">XIII OI(2005,2006)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/116/">XII OI(2004,2005)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/67/">XI OI(2003,2004)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/69/">X OI(2002,2003)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/104/">IX OI(2001,2002)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/129/">VIII OI(2000,2001)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/133/">VII OI(1999,2000)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/137/">VI OI(1998,1999)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/53/">V OI(1997,1998)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/51/">IV OI(1996,1997)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/60/">III OI(1995,1996)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+     " >
+    <a href="/l/46/">II OI(1994,1995)</a>
+
+    
+
+</li>
+  
+  <li class="level2_entry 
+      last-child " >
+    <a href="/l/43/">I OI(1993,1994)</a>
+
+    
+
+</li>
+  
+</ul>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+
+<a href="/l/40/">Książeczki</a>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+
+<a href="/l/7/">Galeria</a>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+
+<a href="/l/21/">Linki</a>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+
+    <br />
+    <!-- FB like button -->
+    <div class="fb-like" data-href="https://facebook.com/OlimpiadaInformatyczna"
+        data-send="false" data-width="200" data-show-faces="false"></div>
+
+      <div id="sponsor">
+      <div>Współorganizatorzy</div>
+        <a href="http://www.men.gov.pl" target="_blank"><img src="/static/images/logo_men.png" alt="logo Ministerstwa Edukacji Narodowej"></a>
+        <a href="http://fri.mimuw.edu.pl" target="_blank"><img src="/static/images/logo_fri_kolor_150.png" alt="logo Fundacji Rozwoju Informatyki"></a>
+        <p align="center"><b>/* Sponsorzy */</b></p>
+        <a href="http://www.asseco.pl" target="_blank"><img src="/static/images/logo_asseco_poland.png" alt="logo Asseco Poland"></a>
+        <p align="center"><a href="http://www.iiit.pl" target="_blank"><img width="70" src="/static/images/IIIT_logo_male.png" alt="logo IIIT"></a></p>
+        <!--<p align="right"><a href="http://www.softwaremind.pl" target="_blank"><img src="/static/images/logo_sm.png" alt="logo Software Mind"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>-->
+        <p align="center"><b>/* Partnerzy */</b></p>
+        <p align="center"><a href="http://www.oeiizk.waw.pl" target="_blank"><img src="/static/images/logo_oeiizk.jpg" width="100" alt="logo OEIiZK"></a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <p align="center"><a href="https://codility.com/" target="_blank"><img src="/static/images/codility1.gif" alt="logo Codility"></a></p>
+        <p align="center"><b>/* Instytucje wspierające */</b></p>
+        <p align="center"><a href="https://www.janestreet.com/" target="_blank"><img src="/static/images/jane_street1.png" alt="logo Jane Street"></a></p>
+        <p align="center"><a href="http://www.pwn.pl/" target="_blank"><img src="/static/images/pwn-logo.gif" alt="logo PWN"></a></p>
+        <p align="center"><b>/* Partner wspierający */</b></p>
+        <p align="center"><a href="http://www.pti.org.pl/" target="_blank"><img src="/static/images/logo_pti_120.gif" alt="logo PTI"></a></p>
+        <!--<p align="center"><b>/* Partner finału XXI OI */</b></p>
+        <p align="center"><a href="https://www.gemius.pl/" target="_blank"><img src="/static/images/logo_podstawowe_gemius.jpg" width="150" alt="logo Grmius"></a></p>-->
+      </div>
+
+
+    </div>
+    
+    <div id="center_pane">
+      <div id="content">
+        
+<div class="content_title">Finał XIV OI 2006/2007 </div>
+
+<div class="results">
+
+
+
+
+
+
+
+
+
+<div id="gold">laureat I miejsca</div>
+
+
+
+
+
+<table class="results_table">
+<tr>
+
+  <th> lp. </th>
+
+  <th> imię i nazwisko </th>
+
+  <th> klasa </th>
+
+  <th> szkoła </th>
+
+  <th> miejscowość </th>
+
+  <th> kol* </th>
+
+  <th> odw </th>
+
+  <th> gaz </th>
+
+  <th> wag </th>
+
+  <th> egz </th>
+
+  <th> klo </th>
+
+  <th> suma </th>
+
+</tr>
+
+
+
+<tr class="gold">
+<td>
+  1
+</td>
+<td>
+  <a href="/contestants/Tomasz Kulczyński/">Tomasz Kulczyński</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+VI LO im. J. i J. Śniadeckich
+</td>
+
+<td>
+Bydgoszcz
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+500
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  2
+</td>
+<td>
+  <a href="/contestants/Marcin Andrychowicz/">Marcin Andrychowicz</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+XIV LO im. Stanisława Staszica
+</td>
+
+<td>
+Warszawa
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+100
+</td>
+
+<td>
+400
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  3
+</td>
+<td>
+  <a href="/contestants/Jakub Kallas/">Jakub Kallas</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+<td>
+0
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+400
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+  </table>
+  <br>
+
+
+
+
+<div id="silver">laureat II miejsca</div>
+
+
+
+
+<table class="results_table">
+<tr>
+
+  <th> lp. </th>
+
+  <th> imię i nazwisko </th>
+
+  <th> klasa </th>
+
+  <th> szkoła </th>
+
+  <th> miejscowość </th>
+
+  <th> kol* </th>
+
+  <th> odw </th>
+
+  <th> gaz </th>
+
+  <th> wag </th>
+
+  <th> egz </th>
+
+  <th> klo </th>
+
+  <th> suma </th>
+
+</tr>
+
+
+
+<tr class="silver">
+<td>
+  4
+</td>
+<td>
+  <a href="/contestants/Marcin Kurczych/">Marcin Kurczych</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I LO im. Stefana Żeromskiego
+</td>
+
+<td>
+Kielce
+</td>
+
+<td>
+69
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+49
+</td>
+
+<td>
+
+</td>
+
+<td>
+100
+</td>
+
+<td>
+349
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  5
+</td>
+<td>
+  <a href="/contestants/Jarosław Gomułka/">Jarosław Gomułka</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+XIV LO im. Polonii Belgijskiej
+</td>
+
+<td>
+Wrocław
+</td>
+
+<td>
+10
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+100
+</td>
+
+<td>
+45
+</td>
+
+<td>
+345
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  6
+</td>
+<td>
+  <a href="/contestants/Piotr Niedźwiedź/">Piotr Niedźwiedź</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+VIII LO im. M. Skłodowskiej-Curie
+</td>
+
+<td>
+Katowice
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+45
+</td>
+
+<td>
+345
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  7
+</td>
+<td>
+  <a href="/contestants/Jarosław Błasiok/">Jarosław Błasiok</a>
+</td>
+
+<td>
+1
+</td>
+
+<td>
+VIII LO im. M. Skłodowskiej-Curie
+</td>
+
+<td>
+Katowice
+</td>
+
+<td>
+
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+50
+</td>
+
+<td>
+91
+</td>
+
+<td>
+341
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  8
+</td>
+<td>
+  <a href="/contestants/Maciej Klimek/">Maciej Klimek</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+II Liceum Ogólnokształcące
+</td>
+
+<td>
+Gorzów Wielkopolskie
+</td>
+
+<td>
+79
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+41
+</td>
+
+<td>
+30
+</td>
+
+<td>
+45
+</td>
+
+<td>
+316
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  9
+</td>
+<td>
+  <a href="/contestants/Marcin Kościelnicki/">Marcin Kościelnicki</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+I LO im. Juliusza Slowackiego
+</td>
+
+<td>
+Chorzów
+</td>
+
+<td>
+0
+</td>
+
+<td>
+100
+</td>
+
+<td>
+70
+</td>
+
+<td>
+100
+</td>
+
+<td>
+
+</td>
+
+<td>
+45
+</td>
+
+<td>
+315
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  10
+</td>
+<td>
+  <a href="/contestants/Rafał Józefowicz/">Rafał Józefowicz</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+II LO 
+</td>
+
+<td>
+Olsztyn
+</td>
+
+<td>
+70
+</td>
+
+<td>
+100
+</td>
+
+<td>
+70
+</td>
+
+<td>
+91
+</td>
+
+<td>
+0
+</td>
+
+<td>
+45
+</td>
+
+<td>
+306
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  11
+</td>
+<td>
+  <a href="/contestants/Michał Jastrzębski/">Michał Jastrzębski</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+XIV L.O im.Stanisława Staszica
+</td>
+
+<td>
+Warszawa
+</td>
+
+<td>
+
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+
+</td>
+
+<td>
+0
+</td>
+
+<td>
+300
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  12
+</td>
+<td>
+  <a href="/contestants/Damian Karasiński/">Damian Karasiński</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I LO im. T. Kościuszki
+</td>
+
+<td>
+Gorzów Wielkopolskie
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+0
+</td>
+
+<td>
+100
+</td>
+
+<td>
+300
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="silver">
+<td>
+  13
+</td>
+<td>
+  <a href="/contestants/Łukasz Wołochowski/">Łukasz Wołochowski</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+<td>
+
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+0
+</td>
+
+<td>
+98
+</td>
+
+<td>
+298
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+  </table>
+  <br>
+
+
+
+
+
+<div id="bronze">laureat III miejsca</div>
+
+
+
+<table class="results_table">
+<tr>
+
+  <th> lp. </th>
+
+  <th> imię i nazwisko </th>
+
+  <th> klasa </th>
+
+  <th> szkoła </th>
+
+  <th> miejscowość </th>
+
+  <th> kol* </th>
+
+  <th> odw </th>
+
+  <th> gaz </th>
+
+  <th> wag </th>
+
+  <th> egz </th>
+
+  <th> klo </th>
+
+  <th> suma </th>
+
+</tr>
+
+
+
+<tr class="bronze">
+<td>
+  14
+</td>
+<td>
+  <a href="/contestants/Jacek Migdał/">Jacek Migdał</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+V Liceum Ogólnokształcące
+</td>
+
+<td>
+Bielsko-Biała
+</td>
+
+<td>
+95
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+49
+</td>
+
+<td>
+0
+</td>
+
+<td>
+27
+</td>
+
+<td>
+276
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  15
+</td>
+<td>
+  <a href="/contestants/Wojciech Baranowski/">Wojciech Baranowski</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+<td>
+58
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+49
+</td>
+
+<td>
+
+</td>
+
+<td>
+100
+</td>
+
+<td>
+249
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  16
+</td>
+<td>
+  <a href="/contestants/Marek Rogala/">Marek Rogala</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+Ogólnokształcące Liceum Jezuitów
+</td>
+
+<td>
+Gdynia
+</td>
+
+<td>
+40
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+24
+</td>
+
+<td>
+0
+</td>
+
+<td>
+25
+</td>
+
+<td>
+249
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  17
+</td>
+<td>
+  <a href="/contestants/Marcin Babij/">Marcin Babij</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+IX LO
+</td>
+
+<td>
+Wrocław
+</td>
+
+<td>
+70
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+16
+</td>
+
+<td>
+
+</td>
+
+<td>
+18
+</td>
+
+<td>
+234
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  18
+</td>
+<td>
+  <a href="/contestants/Błażej Osiński/">Błażej Osiński</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+VI LO im. J. i J. Śniadeckich
+</td>
+
+<td>
+Bydgoszcz
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+
+</td>
+
+<td>
+
+</td>
+
+<td>
+9
+</td>
+
+<td>
+209
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  19
+</td>
+<td>
+  <a href="/contestants/Piotr Kufel/">Piotr Kufel</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+XXVIII LO im. J. Kochanowskiego
+</td>
+
+<td>
+Warszawa
+</td>
+
+<td>
+
+</td>
+
+<td>
+40
+</td>
+
+<td>
+100
+</td>
+
+<td>
+41
+</td>
+
+<td>
+
+</td>
+
+<td>
+27
+</td>
+
+<td>
+208
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  20
+</td>
+<td>
+  <a href="/contestants/Mateusz Klimek/">Mateusz Klimek</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+II Liceum Ogólnokształcące
+</td>
+
+<td>
+Gorzów Wielkopolskie
+</td>
+
+<td>
+61
+</td>
+
+<td>
+20
+</td>
+
+<td>
+100
+</td>
+
+<td>
+41
+</td>
+
+<td>
+0
+</td>
+
+<td>
+45
+</td>
+
+<td>
+206
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  21
+</td>
+<td>
+  <a href="/contestants/Aleksandra Lipiec/">Aleksandra Lipiec</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+V LO im. Augusta Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+<td>
+94
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+
+</td>
+
+<td>
+0
+</td>
+
+<td>
+200
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  22
+</td>
+<td>
+  <a href="/contestants/Robert Obryk/">Robert Obryk</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+VLO im. A. Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+<td>
+60
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+
+</td>
+
+<td>
+200
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  23
+</td>
+<td>
+  <a href="/contestants/Filip Wieczorek/">Filip Wieczorek</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+<td>
+10
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+100
+</td>
+
+<td>
+
+</td>
+
+<td>
+0
+</td>
+
+<td>
+200
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  24
+</td>
+<td>
+  <a href="/contestants/Tomek Żurkowski/">Tomek Żurkowski</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I Liceum Ogólnokształcące
+</td>
+
+<td>
+Swarzędz
+</td>
+
+<td>
+90
+</td>
+
+<td>
+100
+</td>
+
+<td>
+100
+</td>
+
+<td>
+0
+</td>
+
+<td>
+
+</td>
+
+<td>
+0
+</td>
+
+<td>
+200
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="bronze">
+<td>
+  25
+</td>
+<td>
+  <a href="/contestants/Mateusz Baranowski/">Mateusz Baranowski</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+<td>
+
+</td>
+
+<td>
+90
+</td>
+
+<td>
+0
+</td>
+
+<td>
+9
+</td>
+
+<td>
+
+</td>
+
+<td>
+100
+</td>
+
+<td>
+199
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+  </table>
+  <br>
+
+
+
+<div id="gold">finalista</div>
+
+
+
+
+
+<table class="results_table">
+<tr>
+
+  <th> lp. </th>
+
+  <th> imię i nazwisko </th>
+
+  <th> klasa </th>
+
+  <th> szkoła </th>
+
+  <th> miejscowość </th>
+
+  <th> kol* </th>
+
+  <th> odw </th>
+
+  <th> gaz </th>
+
+  <th> wag </th>
+
+  <th> egz </th>
+
+  <th> klo </th>
+
+  <th> suma </th>
+
+</tr>
+
+
+
+<tr class="gold">
+<td>
+  26
+</td>
+<td>
+  <a href="/contestants/Paweł Blokus/">Paweł Blokus</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  27
+</td>
+<td>
+  <a href="/contestants/Michał Dereziński/">Michał Dereziński</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+XIV LO im. Stanisława Staszica
+</td>
+
+<td>
+Warszawa
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  28
+</td>
+<td>
+  <a href="/contestants/Łukasz Dudek/">Łukasz Dudek</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+II LO im. Jana III Sobieskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  29
+</td>
+<td>
+  <a href="/contestants/Dominik Dudzik/">Dominik Dudzik</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+V LO im. Augusta Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  30
+</td>
+<td>
+  <a href="/contestants/Atrur Dwornik/">Atrur Dwornik</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I LO im. T. Kościuszki
+</td>
+
+<td>
+Konin
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  31
+</td>
+<td>
+  <a href="/contestants/Przemysław Gajda/">Przemysław Gajda</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+V LO im. Augusta Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  32
+</td>
+<td>
+  <a href="/contestants/Krzysztof Gogolewski/">Krzysztof Gogolewski</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I LO im. Hugona Kołłątaja
+</td>
+
+<td>
+Krotoszyn
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  33
+</td>
+<td>
+  <a href="/contestants/Konrad Gołuchowski/">Konrad Gołuchowski</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+VIII LO im. M. Skłodowskiej-Curie
+</td>
+
+<td>
+Katowice
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  34
+</td>
+<td>
+  <a href="/contestants/Bartosz Górski/">Bartosz Górski</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+VIII LO im. Władysława IV
+</td>
+
+<td>
+Warszawa
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  35
+</td>
+<td>
+  <a href="/contestants/Jan Inowolski/">Jan Inowolski</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+XIV LO im. Stanisława Staszica
+</td>
+
+<td>
+Warszawa
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  36
+</td>
+<td>
+  <a href="/contestants/Michał Iwaniuk/">Michał Iwaniuk</a>
+</td>
+
+<td>
+1
+</td>
+
+<td>
+XIV LO im. Stanisława Staszica
+</td>
+
+<td>
+Warszawa
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  37
+</td>
+<td>
+  <a href="/contestants/Wojciech Jamrozy/">Wojciech Jamrozy</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+II Liceum Ogólnokształcące
+</td>
+
+<td>
+Mielec
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  38
+</td>
+<td>
+  <a href="/contestants/Piotr Janik/">Piotr Janik</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+V LO im. Augusta Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  39
+</td>
+<td>
+  <a href="/contestants/Jacek Jendrej/">Jacek Jendrej</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+III LO im. Unii Lubelskiej
+</td>
+
+<td>
+Lublin
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  40
+</td>
+<td>
+  <a href="/contestants/Piotr Kieć/">Piotr Kieć</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+ZSO Liceum Ogólnokształcące
+</td>
+
+<td>
+Kamienna Góra
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  41
+</td>
+<td>
+  <a href="/contestants/Marek Kiszkis/">Marek Kiszkis</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  42
+</td>
+<td>
+  <a href="/contestants/Jerzy Kozera/">Jerzy Kozera</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+VI LO im. J. i J. Śniadeckich
+</td>
+
+<td>
+Bydgoszcz
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  43
+</td>
+<td>
+  <a href="/contestants/Bolesław Kulbabiński/">Bolesław Kulbabiński</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+I LO im. Stefana Żeromskiego
+</td>
+
+<td>
+Kielce
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  44
+</td>
+<td>
+  <a href="/contestants/Bartosz Lewiński/">Bartosz Lewiński</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  45
+</td>
+<td>
+  <a href="/contestants/Tomasz Marmołowski/">Tomasz Marmołowski</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  46
+</td>
+<td>
+  <a href="/contestants/Przemysław Mazur/">Przemysław Mazur</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+II LO im. Jana III Sobieskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  47
+</td>
+<td>
+  <a href="/contestants/Łukasz Mazurek/">Łukasz Mazurek</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+XIV LO im. Stanisława Staszica
+</td>
+
+<td>
+Warszawa
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  48
+</td>
+<td>
+  <a href="/contestants/Mirosław Michalski/">Mirosław Michalski</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  49
+</td>
+<td>
+  <a href="/contestants/Cezary Myczka/">Cezary Myczka</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I LO im. T. Kościuszki
+</td>
+
+<td>
+Gorzów Wielkopolskie
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  50
+</td>
+<td>
+  <a href="/contestants/Jakub Oćwieja/">Jakub Oćwieja</a>
+</td>
+
+<td>
+1
+</td>
+
+<td>
+V Liceum Ogólnokształcące
+</td>
+
+<td>
+Bielsko-Biała
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  51
+</td>
+<td>
+  <a href="/contestants/Maciek Pacut/">Maciek Pacut</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+III LO im. Stefana Żeromskiego
+</td>
+
+<td>
+Bielsko-Biała
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  52
+</td>
+<td>
+  <a href="/contestants/Szymon Pałka/">Szymon Pałka</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+V LO im. Augusta Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  53
+</td>
+<td>
+  <a href="/contestants/Jonasz Pamuła/">Jonasz Pamuła</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+V LO im. Augusta Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  54
+</td>
+<td>
+  <a href="/contestants/Szymon Piechowicz/">Szymon Piechowicz</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+II LO im. Adama Mickiewicza
+</td>
+
+<td>
+Słupsk
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  55
+</td>
+<td>
+  <a href="/contestants/Michał Pilch/">Michał Pilch</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I LO im. Adama Mickiewicza
+</td>
+
+<td>
+Białystok
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  56
+</td>
+<td>
+  <a href="/contestants/Mateusz Piwnicki/">Mateusz Piwnicki</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I LO im. Tadeusza Kościuszki
+</td>
+
+<td>
+Wieluń
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  57
+</td>
+<td>
+  <a href="/contestants/Robert Pohnke/">Robert Pohnke</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  58
+</td>
+<td>
+  <a href="/contestants/Piotr Polesiuk/">Piotr Polesiuk</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+I Liceum Ogólnokształcące
+</td>
+
+<td>
+Wałbrzych
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  59
+</td>
+<td>
+  <a href="/contestants/Tomasz Roda/">Tomasz Roda</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  60
+</td>
+<td>
+  <a href="/contestants/Rafał Ruciński/">Rafał Ruciński</a>
+</td>
+
+<td>
+1
+</td>
+
+<td>
+XIII Liceum Ogólnokształcące
+</td>
+
+<td>
+Szczecin
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  61
+</td>
+<td>
+  <a href="/contestants/Jan Rudol/">Jan Rudol</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+II LO im. Jana III Sobieskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  62
+</td>
+<td>
+  <a href="/contestants/Marek Sapota/">Marek Sapota</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  63
+</td>
+<td>
+  <a href="/contestants/Michał Stachurski/">Michał Stachurski</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+I LO im. M. Kopernika 
+</td>
+
+<td>
+Jarosław
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  64
+</td>
+<td>
+  <a href="/contestants/Damian Straszak/">Damian Straszak</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+I Liceum Ogólnokształcące
+</td>
+
+<td>
+Racibórz
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  65
+</td>
+<td>
+  <a href="/contestants/Marcin Walas/">Marcin Walas</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+V Liceum Ogólnokształcące
+</td>
+
+<td>
+Bielsko-Biała
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  66
+</td>
+<td>
+  <a href="/contestants/Oskar Wantoła/">Oskar Wantoła</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  67
+</td>
+<td>
+  <a href="/contestants/Eryk Wieliczko/">Eryk Wieliczko</a>
+</td>
+
+<td>
+1
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  68
+</td>
+<td>
+  <a href="/contestants/Jarosław Wódka/">Jarosław Wódka</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+I LO im. Wł. Broniewskiego
+</td>
+
+<td>
+Bełchatów
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  69
+</td>
+<td>
+  <a href="/contestants/Marek Wróbel/">Marek Wróbel</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+V LO im. Augusta Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  70
+</td>
+<td>
+  <a href="/contestants/Michał Wszołek/">Michał Wszołek</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+V LO im. Augusta Witkowskiego
+</td>
+
+<td>
+Kraków
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  71
+</td>
+<td>
+  <a href="/contestants/Łukasz Zatorski/">Łukasz Zatorski</a>
+</td>
+
+<td>
+2
+</td>
+
+<td>
+X Liceum Ogólnokształcące
+</td>
+
+<td>
+Wrocław
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+<tr class="gold">
+<td>
+  72
+</td>
+<td>
+  <a href="/contestants/Artur Żylinski/">Artur Żylinski</a>
+</td>
+
+<td>
+3
+</td>
+
+<td>
+III LO im. Marynarki Wojennej RP
+</td>
+
+<td>
+Gdynia
+</td>
+
+</tr>
+
+
+</table>
+
+
+
+
+</div>
+
+
+      </div>
+    </div>
+
+    <div id=footer>
+      <span class="line1">Olimpiada Informatyczna, OEIiZK</span><br>
+      <ul>
+        <li>ul. Nowogrodzka 73</li>
+        <li>02-006 Warszawa</li>
+        <li>tel. 22 626 83 90</li>
+        <li>fax. 22 626 92 50</li>
+        <li class="last_item"><a href="mailto:olimpiada@oi.edu.pl">olimpiada@oi.edu.pl</a></li>
+      </ul>
+
+
+   </div>
+  
+  
+     <div id="anna">
+      &copy; Anna Michalska<br>
+      Uniwersytet Warszawski
+      </div>
+ 
+  
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+
+  </body>
+
+</html>
